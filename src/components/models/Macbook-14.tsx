@@ -73,7 +73,7 @@ export default function MacbookModel14(props: Record<string, unknown>) {
         (mesh.material as THREE.MeshStandardMaterial).color.set(color);
       }
     });
-  }, [color]);
+  }, [color, scene]);
 
   return (
     <group {...props} dispose={null}>

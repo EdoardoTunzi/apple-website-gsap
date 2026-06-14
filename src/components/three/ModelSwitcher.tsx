@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import { PresentationControls } from "@react-three/drei";
 import { useRef } from "react";
 import MacbookModel14 from "../models/Macbook-14";
@@ -8,25 +9,32 @@ import gsap from "gsap";
 const ANIMATION_DURATION = 1;
 const OFFSET_DISTANCE = 5;
 
-const fadeMeshes = (group, opacity) => {
+const fadeMeshes = (group: THREE.Group | null, opacity: number) => {
   if (!group) return;
 
   group.traverse((child) => {
-    if (child.isMesh) {
-      child.material.transparent = true;
-      gsap.to(child.material, { opacity, duration: ANIMATION_DURATION });
+    const mesh = child as THREE.Mesh;
+    if (mesh.isMesh) {
+      (mesh.material as THREE.MeshStandardMaterial).transparent = true;
+      gsap.to(mesh.material, { opacity, duration: ANIMATION_DURATION });
     }
   });
 };
-const moveGroup = (group, x) => {
+
+const moveGroup = (group: THREE.Group | null, x: number) => {
   if (!group) return;
 
   gsap.to(group.position, { x, duration: ANIMATION_DURATION });
 };
 
-const ModelSwitcher = ({ scale, isMobile }) => {
-  const smallMacbookRef = useRef();
-  const largeMacbookRef = useRef();
+interface ModelSwitcherProps {
+  scale: number;
+  isMobile: boolean;
+}
+
+const ModelSwitcher = ({ scale, isMobile }: ModelSwitcherProps) => {
+  const smallMacbookRef = useRef<THREE.Group>(null);
+  const largeMacbookRef = useRef<THREE.Group>(null);
 
   const showLargeMacbook = scale === 0.08 || scale === 0.05;
 
@@ -47,11 +55,14 @@ const ModelSwitcher = ({ scale, isMobile }) => {
   }, [scale]);
 
   const controlConfig = {
+    global: true,
     snap: true,
-    speed: 1,
-    zoom: 0.5,
-    /* azimuth: [-Infinity, Infinity], */
-    confing: { mass: 1, tension: 0, friction: 26 }
+    speed: 1.5,
+    zoom: 1,
+    rotation: [0, 0, 0] as [number, number, number],
+    polar: [-Math.PI / 8, Math.PI / 4] as [number, number],
+    azimuth: [-Math.PI / 2, Math.PI / 2] as [number, number],
+    config: { mass: 1, tension: 220, friction: 32 }
   };
 
   return (
