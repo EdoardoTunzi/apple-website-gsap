@@ -57,7 +57,7 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Model(props: Record<string, unknown>) {
+export default function MacbookModel16(props: Record<string, unknown>) {
   const gltf = useGLTF("/models/macbook-16-transformed.glb") as unknown as GLTFResult;
   const { nodes, materials } = gltf;
   const texture = useTexture("/screen.png");
