@@ -79,6 +79,24 @@ const performanceImgPositions = [
   }
 ];
 
+const performanceImgPositionsMobile = [
+  { id: "p1", left: 36, bottom: 60 },
+  { id: "p2", right: 36, bottom: 60 },
+  { id: "p6", left: 0, bottom: 60 },
+  { id: "p3", right: 0, bottom: 58 },
+  { id: "p7", left: 36, bottom: -15 },
+  { id: "p4", right: 36, bottom: -15 }
+];
+
+const performanceImgPositionsTablet = [
+  { id: "p1", left: 35, bottom: 58 },
+  { id: "p2", right: 35, bottom: 58 },
+  { id: "p3", right: 27, bottom: 30 },
+  { id: "p4", right: 27, bottom: 3 },
+  { id: "p6", left: 27, bottom: 30 },
+  { id: "p7", left: 27, bottom: 3 }
+];
+
 const features = [
   {
     id: 1,
@@ -133,4 +151,14 @@ const footerLinks = [
   { label: "Site Map", link: "#" }
 ];
 
-export { features, featureSequence, footerLinks, navLinks, noChangeParts, performanceImages, performanceImgPositions };
+export {
+  features,
+  featureSequence,
+  footerLinks,
+  navLinks,
+  noChangeParts,
+  performanceImages,
+  performanceImgPositions,
+  performanceImgPositionsMobile,
+  performanceImgPositionsTablet
+};
