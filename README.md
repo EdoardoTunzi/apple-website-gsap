@@ -28,4 +28,4 @@ Questo progetto rappresenta un esempio di sviluppo frontend moderno, combinando 
 
 ## Demo
 
-🔗 **Live Preview:** [Visualizza il progetto](apple-website-gsap-seven.vercel.app)
+🔗 **Live Preview:** [Visualizza il progetto](https://apple-website-gsap-seven.vercel.app)
