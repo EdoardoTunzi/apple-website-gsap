@@ -25,3 +25,7 @@ Questo progetto rappresenta un esempio di sviluppo frontend moderno, combinando 
 - Zustand
 - clsx
 - react-responsive
+
+## Demo
+
+🔗 **Live Preview:** [Visualizza il progetto](apple-website-gsap-seven.vercel.app)
